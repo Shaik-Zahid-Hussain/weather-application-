@@ -1,0 +1,188 @@
+/* static/style.css (CSS Styles) */
+
+body {
+    font-family: 'Inter', sans-serif;
+    /* Default background - will be overridden by weather-specific classes */
+    background: linear-gradient(135deg, #87CEEB, #6A5ACD);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+    transition: background 1s ease-in-out; /* Smooth transition for background changes */
+}
+
+/* Dynamic Backgrounds based on weather conditions */
+body.weather-clear {
+    background: linear-gradient(135deg, #87CEEB, #6A5ACD); /* Bright Sky Blue to Slate Blue */
+}
+body.weather-clouds {
+    background: linear-gradient(135deg, #B0C4DE, #708090); /* Light Steel Blue to Slate Gray */
+}
+body.weather-rain {
+    background: linear-gradient(135deg, #6A82AB, #2C3E50); /* Greyish Blue to Dark Blue */
+}
+body.weather-snow {
+    background: linear-gradient(135deg, #E0FFFF, #B0C4DE); /* Light Cyan to Light Steel Blue */
+}
+body.weather-thunderstorm {
+    background: linear-gradient(135deg, #4B0082, #1C1C1C); /* Indigo to Dark Grey */
+}
+body.weather-mist {
+    background: linear-gradient(135deg, #D3D3D3, #A9A9A9); /* Light Grey to Dark Grey */
+}
+
+/* Custom CSS for Glassmorphism Effect */
+.glass-card {
+    background: rgba(255, 255, 255, 0.25); /* Slightly less transparent */
+    backdrop-filter: blur(12px); /* Slightly more blur */
+    -webkit-backdrop-filter: blur(12px); /* Safari support */
+    border: 1px solid rgba(255, 255, 255, 0.4); /* Stronger light border */
+    box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.15); /* More pronounced shadow */
+    transition: all 0.3s ease-in-out; /* Smooth transitions for hover effects */
+}
+
+/* Background Elements - Mimicking the image */
+.bg-element {
+    position: absolute;
+    z-index: 0;
+}
+
+.sun {
+    width: 180px; /* Slightly larger */
+    height: 180px;
+    background-color: #FFD700; /* Gold */
+    border-radius: 50%;
+    box-shadow: 0 0 50px rgba(255, 215, 0, 0.8); /* Stronger glow */
+    top: 8%;
+    left: 12%;
+    transform: rotate(25deg); /* Slightly more rotation */
+    animation: floatSun 6s ease-in-out infinite; /* Floating animation */
+}
+
+@keyframes floatSun {
+    0% { transform: translateY(0) rotate(25deg); }
+    50% { transform: translateY(-10px) rotate(28deg); }
+    100% { transform: translateY(0) rotate(25deg); }
+}
+
+
+.cloud {
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
+    animation: floatCloud 8s ease-in-out infinite; /* Floating animation */
+}
+.cloud-1 { width: 140px; height: 80px; top: 15%; left: 30%; transform: scale(1.2); animation-delay: 0s; }
+.cloud-2 { width: 120px; height: 70px; top: 40%; left: 5%; transform: scale(0.9); animation-delay: 2s; }
+.cloud-3 { width: 170px; height: 90px; bottom: 10%; right: 15%; transform: scale(1.1); animation-delay: 4s; }
+.cloud-4 { width: 100px; height: 60px; top: 25%; right: 5%; transform: scale(0.8); animation-delay: 6s; }
+.cloud-5 { width: 130px; height: 75px; bottom: 20%; left: 25%; transform: scale(1.05); animation-delay: 1s; }
+
+@keyframes floatCloud {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+}
+
+.hot-air-balloon {
+    position: absolute;
+    bottom: 0;
+    right: 5%;
+    width: 200px; /* Slightly larger */
+    height: 280px;
+    z-index: 1;
+    animation: floatBalloon 10s ease-in-out infinite; /* Floating animation */
+}
+.balloon-top {
+    width: 100%;
+    height: 70%;
+    background: linear-gradient(to bottom, #FF6347, #FF4500); /* Tomato to Orange Red */
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    position: relative;
+    z-index: 2;
+}
+.balloon-stripe {
+    position: absolute;
+    width: 100%;
+    height: 20%;
+    background-color: #3CB371; /* Medium Sea Green */
+    bottom: 0;
+    border-radius: 0 0 50% 50% / 0 0 100% 100%;
+}
+.balloon-basket {
+    width: 65%; /* Slightly wider */
+    height: 30%;
+    background-color: #A0522D; /* Siennna */
+    border-radius: 12px; /* More rounded */
+    position: absolute;
+    bottom: 0;
+    left: 17.5%; /* Adjust for width */
+    z-index: 1;
+}
+.balloon-rope {
+    position: absolute;
+    width: 3px; /* Slightly thicker */
+    height: 35%; /* Longer */
+    background-color: #6B4226; /* Darker brown */
+    top: 55%; /* Adjust position */
+    left: 30%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+.balloon-rope:nth-child(2) {
+    left: 70%;
+}
+
+@keyframes floatBalloon {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+}
+
+
+.wind-swirl {
+    width: 90px; /* Slightly larger */
+    height: 90px;
+    border: 6px solid #1E90FF; /* Dodger Blue */
+    border-radius: 50%;
+    position: absolute;
+    opacity: 0.7; /* Slightly more opaque */
+    animation: swirl 4s infinite linear;
+}
+.wind-swirl:nth-child(1) { top: 40%; left: 65%; transform: rotate(0deg); animation-delay: 0s; }
+.wind-swirl:nth-child(2) { top: 50%; left: 70%; transform: rotate(45deg); animation-delay: 1.3s; }
+.wind-swirl:nth-child(3) { top: 60%; left: 60%; transform: rotate(90deg); animation-delay: 2.6s; }
+
+@keyframes swirl {
+    0% { transform: rotate(0deg) scale(0.8); opacity: 0.7; }
+    50% { transform: rotate(180deg) scale(1); opacity: 0.9; }
+    100% { transform: rotate(360deg) scale(0.8); opacity: 0.7; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .sun { width: 120px; height: 120px; top: 10%; left: 8%; }
+    .cloud-1 { width: 100px; height: 60px; top: 18%; left: 25%; }
+    .cloud-2 { width: 80px; height: 45px; top: 45%; left: 0%; }
+    .cloud-3 { width: 130px; height: 70px; bottom: 15%; right: 5%; }
+    .cloud-4 { width: 70px; height: 40px; top: 28%; right: 0%; }
+    .cloud-5 { width: 90px; height: 50px; bottom: 25%; left: 15%; }
+    .hot-air-balloon { width: 150px; height: 210px; right: 0%; }
+    .wind-swirl { width: 70px; height: 70px; }
+    .wind-swirl:nth-child(1) { top: 45%; left: 60%; }
+    .wind-swirl:nth-child(2) { top: 55%; left: 65%; }
+    .wind-swirl:nth-child(3) { top: 65%; left: 55%; }
+}
+
+/* Animation for the weather icon */
+.weather-icon-animation {
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
