@@ -24,6 +24,6 @@ if __name__ == '__main__':
     if not os.path.exists('static'):
         os.makedirs('static')
 
-    print("Flask server running. Open http://127.0.0.1:5000 in your browser.")
+    print("Flask server running. Open http://127.0.0.1:10000 in your browser.")
     print("Make sure 'index.html' is in 'templates/' and 'style.css', 'script.js' are in 'static/'.")
-    app.run(debug=True) # debug=True allows for automatic reloading on code changes
+    app.run(host='0.0.0.0', port=10000, debug=True)  # Runs on port 10000 and listens on all interfaces
