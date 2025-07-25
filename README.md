@@ -1,6 +1,8 @@
 Weather Application
 This is a simple yet dynamic weather application that displays current weather conditions for any city, featuring a modern glassmorphism UI and dynamic background elements that change based on the weather and time of day.
 
+live : https://weather-application-3j46.onrender.com/
+
 Features
 Search by City: Get real-time weather data for any city worldwide.
 
@@ -25,6 +27,9 @@ Responsive Design: Adapts to different screen sizes (mobile, tablet, desktop).
 Key Weather Metrics: Displays temperature, weather description, humidity, wind speed, and "feels like" temperature.
 
 Loading and Error States: Provides feedback while fetching data or if a city is not found.
+
+# deploy
+Render : https://render.com/ 
 
 Technologies Used
 Backend: Python 3 with Flask
